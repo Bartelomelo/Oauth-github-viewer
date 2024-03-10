@@ -2,11 +2,11 @@ package com.example.githuboauthviewer.ui.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.githuboauthviewer.data.AppPreferences
+import com.example.githuboauthviewer.data.repository.GithubRepository
 import kotlinx.coroutines.launch
 
-class AuthViewModel(private val preferences: AppPreferences): ViewModel() {
+class AuthViewModel(private val repository: GithubRepository): ViewModel() {
     fun saveToken(token: String) = viewModelScope.launch {
-        preferences.saveToken(token)
+        repository.saveToken(token)
     }
 }

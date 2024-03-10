@@ -14,17 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
 import com.example.githuboauthviewer.data.AppPreferences
+import com.example.githuboauthviewer.data.repository.GithubRepository
 import com.example.githuboauthviewer.ui.base.ViewModelFactory
 import com.example.githuboauthviewer.ui.github.ui.theme.GithubOauthViewerTheme
 
 class GithubActivity : ComponentActivity() {
     private lateinit var viewModel: GithubViewModel
-    private lateinit var preferences: AppPreferences
+    private lateinit var repository: GithubRepository
     private var token: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        preferences = AppPreferences(this)
-        val viewModelFactory = ViewModelFactory(preferences)
+        repository = GithubRepository(AppPreferences(this))
+        val viewModelFactory = ViewModelFactory(repository = repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[GithubViewModel::class.java]
         viewModel.getToken()
         viewModel.token.observe(this) {

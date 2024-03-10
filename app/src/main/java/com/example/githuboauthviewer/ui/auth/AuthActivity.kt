@@ -29,6 +29,7 @@ import com.example.githuboauthviewer.R
 import com.example.githuboauthviewer.data.AppPreferences
 import com.example.githuboauthviewer.data.GITHUB_CLIENT_ID
 import com.example.githuboauthviewer.data.GITHUB_CLIENT_SECRET
+import com.example.githuboauthviewer.data.repository.GithubRepository
 import com.example.githuboauthviewer.ui.auth.ui.theme.GithubOauthViewerTheme
 import com.example.githuboauthviewer.ui.base.ViewModelFactory
 import com.example.githuboauthviewer.ui.github.GithubActivity
@@ -44,12 +45,12 @@ class AuthActivity : ComponentActivity() {
 
     private lateinit var service: AuthorizationService
     private lateinit var viewModel: AuthViewModel
-    private lateinit var preferences: AppPreferences
+    private lateinit var repository: GithubRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         service = AuthorizationService(this)
-        preferences = AppPreferences(this)
-        val viewModelFactory = ViewModelFactory(preferences)
+        repository = GithubRepository(AppPreferences(this))
+        val viewModelFactory = ViewModelFactory(repository = repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[AuthViewModel::class.java]
         setContent {
             GithubOauthViewerTheme {
