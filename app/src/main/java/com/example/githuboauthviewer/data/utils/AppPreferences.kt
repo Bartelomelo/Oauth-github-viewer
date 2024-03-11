@@ -1,4 +1,4 @@
-package com.example.githuboauthviewer.data
+package com.example.githuboauthviewer.data.utils
 
 import android.content.Context
 import androidx.datastore.core.DataStore

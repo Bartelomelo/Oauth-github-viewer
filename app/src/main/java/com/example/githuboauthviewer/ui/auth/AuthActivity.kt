@@ -26,10 +26,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import com.example.githuboauthviewer.R
-import com.example.githuboauthviewer.data.AppPreferences
-import com.example.githuboauthviewer.data.GITHUB_CLIENT_ID
-import com.example.githuboauthviewer.data.GITHUB_CLIENT_SECRET
-import com.example.githuboauthviewer.data.repository.GithubRepository
+import com.example.githuboauthviewer.data.utils.AppPreferences
+import com.example.githuboauthviewer.data.utils.GITHUB_CLIENT_ID
+import com.example.githuboauthviewer.data.utils.GITHUB_CLIENT_SECRET
+import com.example.githuboauthviewer.data.network.repository.GithubRepository
 import com.example.githuboauthviewer.ui.auth.ui.theme.GithubOauthViewerTheme
 import com.example.githuboauthviewer.ui.base.ViewModelFactory
 import com.example.githuboauthviewer.ui.github.GithubActivity

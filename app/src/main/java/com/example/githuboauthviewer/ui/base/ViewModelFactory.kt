@@ -2,7 +2,7 @@ package com.example.githuboauthviewer.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.githuboauthviewer.data.repository.GithubRepository
+import com.example.githuboauthviewer.data.network.repository.GithubRepository
 import com.example.githuboauthviewer.ui.auth.AuthViewModel
 import com.example.githuboauthviewer.ui.github.GithubViewModel
 
