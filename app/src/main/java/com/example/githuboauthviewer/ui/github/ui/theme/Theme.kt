@@ -14,9 +14,10 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.example.githuboauthviewer.ui.auth.ui.theme.PurpleGrey40
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
+    primary = Purple40,
     secondary = PurpleGrey80,
     tertiary = Pink80
 )

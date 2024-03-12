@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -33,6 +36,9 @@ import com.example.githuboauthviewer.data.network.repository.GithubRepository
 import com.example.githuboauthviewer.ui.auth.ui.theme.GithubOauthViewerTheme
 import com.example.githuboauthviewer.ui.base.ViewModelFactory
 import com.example.githuboauthviewer.ui.github.GithubActivity
+import com.example.githuboauthviewer.ui.github.ui.theme.Purple40
+import com.example.githuboauthviewer.ui.github.ui.theme.loginColor
+import com.example.githuboauthviewer.ui.github.ui.theme.primaryColor
 import net.openid.appauth.AuthorizationException
 import net.openid.appauth.AuthorizationRequest
 import net.openid.appauth.AuthorizationResponse
@@ -57,7 +63,7 @@ class AuthActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = primaryColor
                 ) {
                     AuthScreen()
                 }
@@ -84,7 +90,6 @@ class AuthActivity : ComponentActivity() {
                         } else {
                             val token = res?.accessToken
                             viewModel.saveToken(token!!)
-                            //Toast.makeText(this, token, Toast.LENGTH_LONG).show()
                             val intent = Intent(this, GithubActivity::class.java)
                             startActivity(intent)
                             finish()
@@ -122,13 +127,15 @@ class AuthActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Center
         ) {
             Row {
-                Image(painter = painterResource(id = R.drawable.github), contentDescription = null)
+                Image(painter = painterResource(id = R.drawable.github), contentDescription = null, modifier = Modifier.width(370.dp).height(140.dp))
             }
-            Row {
+            Row(
+                Modifier.padding(top = 16.dp)
+            ) {
                 Button(
                     onClick = { githubAuth() },
                     shape = RoundedCornerShape(5.dp),
-                    colors = ButtonDefaults.buttonColors(Color(75, 138, 47))
+                    colors = ButtonDefaults.buttonColors(Purple40)
                 ) {
                     Text(text = "Log In")
                 }
